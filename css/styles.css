@@ -1357,6 +1357,13 @@ body.is-open .scroll-hint {
   max-height: min(72vh, 680px);
   object-fit: contain;
   object-position: center;
+  /* Prefetch paint: keep a hair of opacity so decode isn't deferred */
+  opacity: 0.02;
+  transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.gallery-item--photo.is-in-view img {
+  opacity: 1;
 }
 
 .gallery-item--photo.is-in-view .gallery-item__camera {
@@ -1443,14 +1450,14 @@ body.is-open .scroll-hint {
   pointer-events: none;
   transform: scale(0.92);
   transition:
-    opacity 2.8s ease,
-    transform 3s ease;
+    opacity 0.9s ease,
+    transform 1s ease;
 }
 
 .gallery-item--cutout.is-in-view .gallery-item__glow {
   opacity: 1;
   transform: scale(1);
-  animation: glowPulse 8s ease-in-out 1.6s infinite;
+  animation: glowPulse 8s ease-in-out 0.5s infinite;
 }
 
 .gallery-item--cutout img {
@@ -1462,8 +1469,7 @@ body.is-open .scroll-hint {
   object-fit: contain;
   object-position: bottom center;
   opacity: 0;
-  transform: translate3d(0, 18px, 0);
-  /* Keep filter constant — animating blur on PNGs looks like a pop */
+  transform: translate3d(0, 12px, 0);
   filter: drop-shadow(0 24px 40px rgba(0, 0, 0, 0.4));
   -webkit-mask-image: linear-gradient(
     to bottom,
@@ -1480,33 +1486,13 @@ body.is-open .scroll-hint {
     transparent 100%
   );
   transition:
-    opacity 2.8s ease,
-    transform 2.8s ease;
+    opacity 0.85s ease,
+    transform 0.85s ease;
 }
 
 .gallery-item--cutout.is-in-view img {
   opacity: 1;
   transform: translate3d(0, calc(var(--parallax) * 10px), 0);
-}
-
-/* Soft forest veil that lifts away — smoother than blur */
-.gallery-item__dissolve {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  background: radial-gradient(
-    ellipse 70% 75% at 50% 55%,
-    rgba(11, 20, 17, 0.92) 0%,
-    rgba(11, 20, 17, 0.55) 45%,
-    transparent 72%
-  );
-  opacity: 1;
-  transition: opacity 2.6s ease;
-}
-
-.gallery-item--cutout.is-in-view .gallery-item__dissolve {
-  opacity: 0;
 }
 
 .gallery-item__foot-fade {
@@ -1524,7 +1510,7 @@ body.is-open .scroll-hint {
     rgba(11, 20, 17, 0.35) 45%,
     var(--forest) 100%
   );
-  transition: opacity 2s ease 0.9s;
+  transition: opacity 0.8s ease 0.2s;
 }
 
 .gallery-item--cutout.is-in-view .gallery-item__foot-fade {
@@ -1549,8 +1535,8 @@ body.is-open .scroll-hint {
 
 .gallery-item--cutout.is-in-view .gallery-item__fg {
   opacity: 0.75;
-  transition-delay: 1.1s;
-  animation: dustLift 14s ease-in-out 1.4s infinite;
+  transition-delay: 0.25s;
+  animation: dustLift 14s ease-in-out 0.4s infinite;
 }
 
 .gallery-item__sheen {
@@ -1572,8 +1558,8 @@ body.is-open .scroll-hint {
 
 .gallery-item--cutout.is-in-view .gallery-item__sheen {
   opacity: 0.85;
-  transition-delay: 1.3s;
-  animation: sheenPass 10s ease-in-out 1.6s infinite;
+  transition-delay: 0.35s;
+  animation: sheenPass 10s ease-in-out 0.5s infinite;
 }
 
 @keyframes glowPulse {
@@ -1623,17 +1609,12 @@ body.is-open .scroll-hint {
   .gallery-item__camera,
   .gallery-item__glow,
   .gallery-item__fg,
-  .gallery-item__sheen,
-  .gallery-item__dissolve {
+  .gallery-item__sheen {
     animation: none !important;
     transition: none !important;
     opacity: 1 !important;
     transform: none !important;
     filter: none !important;
-  }
-
-  .gallery-item__dissolve {
-    opacity: 0 !important;
   }
 }
 

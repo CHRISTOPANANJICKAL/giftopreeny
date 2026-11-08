@@ -255,14 +255,37 @@
       .join("");
   }
 
+  function prefetchGalleryImages(items) {
+    if (!items?.length) return;
+    items.forEach((item) => {
+      if (!item.src) return;
+      // Browser preload hint
+      if (!document.head.querySelector(`link[data-gallery-preload="${item.src}"]`)) {
+        const link = document.createElement("link");
+        link.rel = "preload";
+        link.as = "image";
+        link.href = item.src;
+        link.dataset.galleryPreload = item.src;
+        document.head.appendChild(link);
+      }
+      // Warm HTTP cache + decode into memory early
+      const warm = new Image();
+      warm.decoding = "async";
+      warm.src = item.src;
+      if (warm.decode) warm.decode().catch(() => {});
+    });
+  }
+
   function renderGallery(items) {
+    prefetchGalleryImages(items);
+
     const grid = $("#gallery-grid");
     grid.innerHTML = items
       .map((item, index) => {
         const style = item.style === "cutout" ? "cutout" : "photo";
         const layout = item.layout || "portrait";
         const span = item.span || (style === "cutout" ? "duo" : "lead");
-        const delay = `${index * 0.12}s`;
+        const delay = `${index * 0.08}s`;
 
         if (style === "cutout") {
           return `
@@ -272,8 +295,12 @@
             >
               <span class="gallery-item__glow" aria-hidden="true"></span>
               <div class="gallery-item__cutout-stage">
-                <img src="${item.src}" alt="${item.alt || ""}" decoding="async" />
-                <span class="gallery-item__dissolve" aria-hidden="true"></span>
+                <img
+                  src="${item.src}"
+                  alt="${item.alt || ""}"
+                  decoding="async"
+                  fetchpriority="high"
+                />
               </div>
               <span class="gallery-item__fg" aria-hidden="true"></span>
               <span class="gallery-item__sheen" aria-hidden="true"></span>
@@ -290,7 +317,12 @@
           >
             <div class="gallery-item__frame">
               <div class="gallery-item__camera">
-                <img src="${item.src}" alt="${item.alt || ""}" decoding="async" />
+                <img
+                  src="${item.src}"
+                  alt="${item.alt || ""}"
+                  decoding="async"
+                  fetchpriority="high"
+                />
               </div>
               <span class="gallery-item__fade" aria-hidden="true"></span>
             </div>
@@ -312,13 +344,14 @@
         item.classList.add("is-ready");
         return;
       }
-      const done = () => item.classList.add("is-ready");
+      const done = () => {
+        item.classList.add("is-ready");
+        tryReveal(item);
+      };
       const prepare = () => {
-        if (img.decode) {
-          img.decode().then(done).catch(done);
-        } else {
-          done();
-        }
+        // Don't block reveal on decode — load is enough; decode in background
+        done();
+        if (img.decode) img.decode().catch(() => {});
       };
       if (img.complete && img.naturalWidth > 0) {
         prepare();
@@ -328,8 +361,6 @@
       }
     };
 
-    items.forEach(markReady);
-
     const tryReveal = (item) => {
       if (
         item.classList.contains("is-ready") &&
@@ -338,21 +369,16 @@
         !item.classList.contains("is-revealing")
       ) {
         item.classList.add("is-revealing");
-        const isCutout = item.classList.contains("gallery-item--cutout");
-        // Cutouts need a longer settle so opacity dissolve can start from a painted frame
-        const wait = isCutout ? 220 : 40;
-        window.setTimeout(() => {
-          void item.offsetHeight;
-          requestAnimationFrame(() => {
-            requestAnimationFrame(() => {
-              item.classList.add("is-in-view");
-            });
-          });
-        }, wait);
+        requestAnimationFrame(() => {
+          item.classList.add("is-in-view");
+        });
       }
     };
 
+    items.forEach(markReady);
+
     if ("IntersectionObserver" in window) {
+      // Begin fade ~1 viewport before the item is on screen
       const io = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -363,14 +389,9 @@
             }
           });
         },
-        { threshold: 0.12, rootMargin: "0px 0px -12% 0px" }
+        { threshold: 0.01, rootMargin: "0px 0px 100% 0px" }
       );
-      items.forEach((item) => {
-        item
-          .querySelector("img")
-          ?.addEventListener("load", () => tryReveal(item), { once: true });
-        io.observe(item);
-      });
+      items.forEach((item) => io.observe(item));
     } else {
       items.forEach((item) => {
         item.classList.add("is-near");
@@ -481,6 +502,8 @@
     requestAnimationFrame(resetScrollTop);
     if (startMusic) ensureMusicPlaying();
     startHeartRain();
+    // Warm gallery again once the invite is open
+    if (config?.gallery) prefetchGalleryImages(config.gallery);
   }
 
   function initEffects() {

@@ -1,0 +1,234 @@
+{
+  "site": {
+    "title": "Gifto & Preeny Wedding Invitation",
+    "tagline": "Two Hearts · One Love · One Journey",
+    "monogram": "Gifto & Preeny",
+    "inviteLabel": "You're Invited",
+    "openButton": "View Invitation",
+    "footerQuote": "Every love story is beautiful, but ours is our favourite.",
+    "footerCredit": "Made with love for our special day"
+  },
+  "couple": {
+    "groom": {
+      "name": "Gifto Baby",
+      "shortName": "Gifto",
+      "displayName": "Gifto Baby",
+      "role": "The Groom",
+      "birthday": "1997-01-06",
+      "parents": {
+        "father": "Davis Pananjickal",
+        "mother": "Ruby Joseph"
+      },
+      "siblings": [
+        {
+          "relation": "Sibling",
+          "name": "Christo Pananjickal"
+        }
+      ],
+      "address": {
+        "line": "Pariyaram, Thrissur"
+      },
+      "bio": "Son of Davis Pananjickal and Ruby Joseph"
+    },
+    "bride": {
+      "name": "Preeny Pauly",
+      "shortName": "Preeny",
+      "displayName": "Preeny Pauly",
+      "role": "The Bride",
+      "birthday": "1998-12-14",
+      "parents": {
+        "father": "K.K. Paulose",
+        "mother": "Sheeba Pauly"
+      },
+      "siblings": [
+        {
+          "relation": "Sibling",
+          "name": "Preena Rose Pauly"
+        },
+        {
+          "relation": "Sibling",
+          "name": "Kevin Pauly"
+        }
+      ],
+      "address": {
+        "line": "Kuttikkad, Thrissur"
+      },
+      "bio": "Daughter of K.K. Paulose and Sheeba Pauly"
+    }
+  },
+  "events": {
+    "engagement": {
+      "title": "Engagement",
+      "datetime": "2026-01-09T15:00:00+05:30",
+      "displayDate": "Saturday, 09 January 2026",
+      "displayTime": "3:00 PM",
+      "venue": "Engagement Ceremony",
+      "mapUrl": "https://maps.app.goo.gl/AHkpRSAagUghpfCe6",
+      "showInCountdown": false
+    },
+    "engagementReception": {
+      "title": "Engagement Reception",
+      "datetime": "2026-01-09T18:00:00+05:30",
+      "displayDate": "Saturday, 09 January 2026",
+      "displayTime": "6:00 PM",
+      "venue": "Royal Garden, Kuttikkad",
+      "mapUrl": "https://share.google/aZwX1GwlYNJvOZPZi",
+      "showInCountdown": false
+    },
+    "wedding": {
+      "title": "Wedding",
+      "datetime": "2027-01-11T15:00:00+05:30",
+      "displayDate": "Monday, 11 January 2027",
+      "displayTime": "3:00 PM",
+      "venue": "St. Mary's Church, Thazhoor",
+      "mapUrl": "https://maps.app.goo.gl/6P4LX5xaujPxjE446",
+      "showInCountdown": true
+    },
+    "reception": {
+      "title": "Wedding Reception",
+      "datetime": "2027-01-11T18:00:00+05:30",
+      "displayDate": "Monday, 11 January 2027",
+      "displayTime": "6:00 PM",
+      "venue": "Heart Land, Chalakudy",
+      "mapUrl": "https://maps.app.goo.gl/6RaLENxmG6gVoYk76",
+      "showInCountdown": false
+    }
+  },
+  "countdownTarget": "wedding",
+  "gallery": [
+    {
+      "src": "assets/couple.jpeg",
+      "alt": "Gifto and Preeny at home",
+      "style": "photo",
+      "layout": "landscape",
+      "span": "lead"
+    },
+    {
+      "src": "assets/gallery/01-hills-lift.jpg",
+      "alt": "Gifto and Preeny laughing in the hills at golden hour",
+      "style": "photo",
+      "layout": "portrait",
+      "span": "duo"
+    },
+    {
+      "src": "assets/gallery/03.png",
+      "alt": "Gifto and Preeny in burgundy and emerald festive attire",
+      "style": "cutout",
+      "theme": "emerald",
+      "layout": "portrait",
+      "span": "duo"
+    }
+  ],
+  "heroImage": "assets/couple.jpeg",
+  "music": {
+    "src": "assets/music.mp3",
+    "loop": true,
+    "autoplayHint": true
+  },
+  "lyrics": [
+    {
+      "start": 0,
+      "end": 14,
+      "text": "Instrumental Intro",
+      "meta": "Violin, Flute & Veena",
+      "type": "instrumental"
+    },
+    {
+      "start": 15,
+      "end": 22,
+      "text": "Gifto, a noble soul, with honor in his eyes,",
+      "type": "verse"
+    },
+    {
+      "start": 22,
+      "end": 29,
+      "text": "He walks with humble grace where quiet virtue lies.",
+      "type": "verse"
+    },
+    {
+      "start": 29,
+      "end": 36,
+      "text": "Bold Preeny chases dreams, her spirit shining bright,",
+      "type": "verse"
+    },
+    {
+      "start": 36,
+      "end": 44,
+      "text": "A thousand stories waiting, bathed in morning light.",
+      "type": "verse"
+    },
+    {
+      "start": 44,
+      "end": 51,
+      "text": "Love asks for sacrifice, a gentle, sacred art,",
+      "type": "chorus"
+    },
+    {
+      "start": 51,
+      "end": 59,
+      "text": "Through trials sharp, let love mend every heart.",
+      "type": "chorus"
+    },
+    {
+      "start": 59,
+      "end": 66,
+      "text": "Like Jesus' boundless grace, your spirits intertwine,",
+      "type": "chorus"
+    },
+    {
+      "start": 66,
+      "end": 73,
+      "text": "In rainy days, your laughter, pure and fine.",
+      "type": "chorus"
+    },
+    {
+      "start": 74,
+      "end": 88,
+      "text": "Instrumental Interlude",
+      "meta": "Violin & Flute Solo",
+      "type": "instrumental"
+    },
+    {
+      "start": 89,
+      "end": 96,
+      "text": "Though years may bring their storms, your bond will bravely gleam,",
+      "type": "bridge"
+    },
+    {
+      "start": 96,
+      "end": 103,
+      "text": "A perfect bedtime story, a shared, enduring dream.",
+      "type": "bridge"
+    },
+    {
+      "start": 103,
+      "end": 111,
+      "text": "May children seek your love, a beacon ever bright,",
+      "type": "chorus"
+    },
+    {
+      "start": 111,
+      "end": 118,
+      "text": "Two souls united now, in everlasting light.",
+      "type": "chorus"
+    },
+    {
+      "start": 118,
+      "end": 133,
+      "text": "Instrumental Outro",
+      "meta": "Gentle Fade-out",
+      "type": "instrumental"
+    }
+  ],
+  "nav": [
+    { "id": "home", "label": "Gifto & Preeny" },
+    { "id": "save-the-date", "label": "Save the Date" },
+    { "id": "couple", "label": "The Couple" },
+    { "id": "events", "label": "When & Where" },
+    { "id": "gallery", "label": "Gallery" },
+    { "id": "invitation", "label": "Invitation" }
+  ],
+  "share": {
+    "whatsappText": "You're invited to Gifto & Preeny's wedding! View the invitation:"
+  }
+}

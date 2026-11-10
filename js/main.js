@@ -50,16 +50,24 @@
       <span class="splash__amp">&</span>
       <span class="splash__name" data-part="bride">${bride}</span>
     `;
-    $("#splash-label").textContent = cfg.site.inviteLabel;
+    const splashKicker = $("#splash-kicker");
+    if (splashKicker) {
+      splashKicker.textContent = cfg.site.splashKicker || "With joyful hearts";
+    }
+    const inviteLabel =
+      cfg.site.inviteLabel ||
+      "You are warmly invited to their Wedding Ceremony & Reception";
+    $("#splash-label").textContent = inviteLabel;
     $("#open-invite").textContent = cfg.site.openButton;
-    const weddingDate = new Date(
-      (cfg.events[cfg.countdownTarget] || cfg.events.wedding).datetime
-    );
+    const splashEventKey = cfg.site.splashDateEvent || "wedding";
+    const splashEvent =
+      cfg.events[splashEventKey] || cfg.events.wedding;
+    const splashEventDate = new Date(splashEvent.datetime);
     const splashDate = $("#splash-date");
-    if (splashDate && !Number.isNaN(weddingDate.getTime())) {
-      const dd = String(weddingDate.getDate()).padStart(2, "0");
-      const mm = String(weddingDate.getMonth() + 1).padStart(2, "0");
-      const yyyy = weddingDate.getFullYear();
+    if (splashDate && !Number.isNaN(splashEventDate.getTime())) {
+      const dd = String(splashEventDate.getDate()).padStart(2, "0");
+      const mm = String(splashEventDate.getMonth() + 1).padStart(2, "0");
+      const yyyy = splashEventDate.getFullYear();
       splashDate.textContent = `${dd} · ${mm} · ${yyyy}`;
     }
 
@@ -79,9 +87,17 @@
     renderGallery(cfg.gallery);
     renderInviteCard(cfg);
 
+    const footerEyebrow = $("#footer-eyebrow");
+    if (footerEyebrow) {
+      footerEyebrow.textContent = cfg.site.footerEyebrow || "Until We Celebrate Together";
+    }
     $("#footer-names").textContent = `${cfg.couple.groom.shortName} & ${cfg.couple.bride.shortName}`;
-    $("#footer-quote").textContent = `"${cfg.site.footerQuote}"`;
-    $("#footer-credit").textContent = cfg.site.footerCredit;
+    $("#footer-quote").textContent = cfg.site.footerQuote || "";
+    const footerBlessing = $("#footer-blessing");
+    if (footerBlessing) {
+      footerBlessing.textContent = cfg.site.footerBlessing || "";
+    }
+    $("#footer-credit").textContent = cfg.site.footerCredit || "";
 
     const audio = $("#bg-music");
     audio.src = cfg.music.src;
@@ -179,21 +195,26 @@
     grid.innerHTML = [couple.bride, couple.groom]
       .map((person) => {
         const sibs = person.siblings || [];
-        const sibLabel = sibs.length > 1 ? "Siblings" : "Sibling";
-        const siblings = sibs.length
-          ? `<li>${sibLabel}: ${sibs.map((s) => s.name).join(", ")}</li>`
-          : "";
+        let siblings = "";
+        if (sibs.length === 1) {
+          const relation = sibs[0].relation || "Sibling";
+          siblings = `<li>${relation}: ${sibs[0].name}</li>`;
+        } else if (sibs.length > 1) {
+          siblings = `<li>Siblings: ${sibs.map((s) => s.name).join(", ")}</li>`;
+        }
         const addr = person.address?.line || "";
+        const bio = person.bio
+          ? `<p class="person__bio">${person.bio}</p>`
+          : "";
+        const meta = siblings
+          ? `<ul class="person__meta">${siblings}</ul>`
+          : "";
         return `
           <article class="person">
             <p class="person__role">${person.role}</p>
             <h3 class="person__name">${person.displayName || person.name}</h3>
-            <p class="person__bio">${person.bio}</p>
-            <ul class="person__meta">
-              <li>Father: ${person.parents.father}</li>
-              <li>Mother: ${person.parents.mother}</li>
-              ${siblings}
-            </ul>
+            ${bio}
+            ${meta}
             ${addr ? `<p class="person__address">${addr}</p>` : ""}
           </article>
         `;

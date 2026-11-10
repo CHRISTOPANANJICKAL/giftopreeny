@@ -3,10 +3,14 @@
     "title": "Gifto & Preeny Wedding Invitation",
     "tagline": "Two Hearts · One Love · One Journey",
     "monogram": "Gifto & Preeny",
-    "inviteLabel": "You're Invited",
+    "splashKicker": "With joyful hearts",
+    "inviteLabel": "You are warmly invited to our Wedding Ceremony & Reception",
     "openButton": "View Invitation",
-    "footerQuote": "Every love story is beautiful, but ours is our favourite.",
-    "footerCredit": "Made with love for our special day"
+    "splashDateEvent": "wedding",
+    "footerEyebrow": "Until We Celebrate Together",
+    "footerQuote": "We began with a conversation. We arrive here with a promise.",
+    "footerBlessing": "May the God who brought our paths together guide every step of the life we build.",
+    "footerCredit": "With love, Gifto & Preeny"
   },
   "couple": {
     "groom": {
@@ -21,14 +25,14 @@
       },
       "siblings": [
         {
-          "relation": "Sibling",
+          "relation": "Brother",
           "name": "Christo Pananjickal"
         }
       ],
       "address": {
-        "line": "Pariyaram, Thrissur"
+        "line": "Pariyaram, Chalakudy"
       },
-      "bio": "Son of Davis Pananjickal and Ruby Joseph"
+      "bio": "Son of Baby Pananjickal and Ruby Joseph"
     },
     "bride": {
       "name": "Preeny Pauly",
@@ -51,32 +55,32 @@
         }
       ],
       "address": {
-        "line": "Kuttikkad, Thrissur"
+        "line": "Kuttikkad, Chalakudy"
       },
       "bio": "Daughter of K.K. Paulose and Sheeba Pauly"
     }
   },
   "events": {
     "engagement": {
-      "title": "Engagement",
-      "datetime": "2026-01-09T15:00:00+05:30",
-      "displayDate": "Saturday, 09 January 2026",
+      "title": "Engagement Ceremony",
+      "datetime": "2027-01-09T15:00:00+05:30",
+      "displayDate": "Saturday, 09 January 2027",
       "displayTime": "3:00 PM",
-      "venue": "Engagement Ceremony",
+      "venue": "St. Sebastian's Forane Church Kuttikad",
       "mapUrl": "https://maps.app.goo.gl/AHkpRSAagUghpfCe6",
       "showInCountdown": false
     },
     "engagementReception": {
       "title": "Engagement Reception",
-      "datetime": "2026-01-09T18:00:00+05:30",
-      "displayDate": "Saturday, 09 January 2026",
+      "datetime": "2027-01-09T18:00:00+05:30",
+      "displayDate": "Saturday, 09 January 2027",
       "displayTime": "6:00 PM",
       "venue": "Royal Garden, Kuttikkad",
       "mapUrl": "https://share.google/aZwX1GwlYNJvOZPZi",
       "showInCountdown": false
     },
     "wedding": {
-      "title": "Wedding",
+      "title": "Wedding Ceremony",
       "datetime": "2027-01-11T15:00:00+05:30",
       "displayDate": "Monday, 11 January 2027",
       "displayTime": "3:00 PM",
@@ -89,7 +93,7 @@
       "datetime": "2027-01-11T18:00:00+05:30",
       "displayDate": "Monday, 11 January 2027",
       "displayTime": "6:00 PM",
-      "venue": "Heart Land, Chalakudy",
+      "venue": " HeartLand Convention Centre, Chalakudy",
       "mapUrl": "https://maps.app.goo.gl/6RaLENxmG6gVoYk76",
       "showInCountdown": false
     }
@@ -104,17 +108,16 @@
       "span": "lead"
     },
     {
-      "src": "assets/gallery/01-hills-lift.jpg",
-      "alt": "Gifto and Preeny laughing in the hills at golden hour",
+      "src": "assets/gallery/01-celebration-portrait.png",
+      "alt": "Gifto and Preeny at their warm celebration",
       "style": "photo",
       "layout": "portrait",
       "span": "duo"
     },
     {
-      "src": "assets/gallery/03.png",
-      "alt": "Gifto and Preeny in burgundy and emerald festive attire",
-      "style": "cutout",
-      "theme": "emerald",
+      "src": "assets/gallery/02-garden-portrait.png",
+      "alt": "Gifto and Preeny in the garden with fairy lights",
+      "style": "photo",
       "layout": "portrait",
       "span": "duo"
     }

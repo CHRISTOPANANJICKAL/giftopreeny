@@ -555,6 +555,42 @@ textarea {
   box-shadow: 0 12px 36px rgba(212, 176, 106, 0.28);
 }
 
+.splash__verse {
+  position: absolute;
+  z-index: 3;
+  left: 0.85rem;
+  right: 0.85rem;
+  bottom: 0.7rem;
+  margin: 0;
+  text-align: center;
+  white-space: nowrap;
+  line-height: 1;
+  pointer-events: none;
+  animation: fadeUp 1s var(--ease) 0.48s both;
+}
+
+.splash__verse-text {
+  font-family: var(--font-display);
+  font-size: clamp(0.72rem, 2.6vw, 1rem);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: rgba(243, 230, 196, 0.9);
+}
+
+.splash__verse-cite {
+  margin-left: 0.4rem;
+  font-family: var(--font-display);
+  font-size: clamp(0.62rem, 2.1vw, 0.82rem);
+  font-style: italic;
+  letter-spacing: 0.04em;
+  color: rgba(201, 164, 91, 0.82);
+}
+
+.splash__verse-cite::before {
+  content: "— ";
+}
+
 @keyframes fadeUp {
   from {
     opacity: 0;

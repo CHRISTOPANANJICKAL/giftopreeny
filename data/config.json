@@ -8,10 +8,11 @@
     "splashKicker": "With grateful hearts,",
     "inviteLabel": "invite you to celebrate the beginning of their forever.",
     "openButton": "View Invitation",
-    "footerEyebrow": "Until We Celebrate Together",
-    "footerQuote": "We began with a conversation. We arrive here with a promise.",
+    "footerEyebrow": "Until we celebrate together",
     "footerBlessing": "May the God who brought our paths together guide every step of the life we build.",
-    "footerCredit": "With love, Gifto & Preeny"
+    "footerSignoff": "With love,",
+    "footerBrand": "Amora",
+    "footerTagline": "A story written in love"
   },
   "couple": {
     "groom": {
@@ -31,14 +32,14 @@
         }
       ],
       "address": {
-        "line": "Pariyaram, Chalakudy"
+        "line": "Kammalam, Chalakudy"
       },
       "bio": "Son of Baby Pananjickal and Ruby Joseph"
     },
     "bride": {
-      "name": "Preeny Pauly",
+      "name": "Preeny Treesa Pauly",
       "shortName": "Preeny",
-      "displayName": "Preeny Pauly",
+      "displayName": "Preeny Treesa Pauly",
       "role": "The Bride",
       "birthday": "1998-12-14",
       "parents": {
@@ -67,8 +68,8 @@
       "datetime": "2027-01-09T15:00:00+05:30",
       "displayDate": "Saturday, 09 January 2027",
       "displayTime": "3:00 PM",
-      "venue": "St. Sebastian's Forane Church Kuttikad",
-      "mapUrl": "https://maps.app.goo.gl/AHkpRSAagUghpfCe6",
+      "venue": "St. Sebastian's Forane Church, Kuttikad",
+      "mapUrl": "https://maps.app.goo.gl/3aWguVsdzB9vtzti9",
       "showInCountdown": false
     },
     "engagementReception": {
@@ -77,7 +78,7 @@
       "displayDate": "Saturday, 09 January 2027",
       "displayTime": "6:00 PM",
       "venue": "Royal Garden, Kuttikkad",
-      "mapUrl": "https://share.google/aZwX1GwlYNJvOZPZi",
+      "mapUrl": "https://maps.app.goo.gl/gBa9YCEyfPnvJKXq8",
       "showInCountdown": false
     },
     "wedding": {
@@ -109,8 +110,8 @@
       "span": "lead"
     },
     {
-      "src": "assets/gallery/01-celebration-portrait.png",
-      "alt": "Gifto and Preeny at their warm celebration",
+      "src": "assets/gallery/01-indoor-portrait.png",
+      "alt": "Gifto and Preeny standing together indoors",
       "style": "photo",
       "layout": "portrait",
       "span": "duo"
@@ -226,9 +227,9 @@
   ],
   "nav": [
     { "id": "home", "label": "Gifto & Preeny" },
-    { "id": "save-the-date", "label": "Save the Date" },
+    { "id": "save-the-date", "label": "Mark your calendar" },
     { "id": "couple", "label": "The Couple" },
-    { "id": "events", "label": "When & Where" },
+    { "id": "events", "label": "Celebrate With Us" },
     { "id": "gallery", "label": "Gallery" },
     { "id": "invitation", "label": "Invitation" }
   ],

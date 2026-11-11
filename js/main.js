@@ -69,9 +69,7 @@
     $("#splash-label").textContent = inviteLabel;
     $("#open-invite").textContent = cfg.site.openButton;
 
-    const names = `${groom} <span>&</span> ${bride}`;
     $("#nav-brand").textContent = `${groom} & ${bride}`;
-    $("#hero-names").innerHTML = names;
     $("#hero-image").src = cfg.heroImage;
     $("#hero-image").alt = `${cfg.couple.groom.name} and ${cfg.couple.bride.name}`;
 
@@ -92,15 +90,25 @@
 
     const footerEyebrow = $("#footer-eyebrow");
     if (footerEyebrow) {
-      footerEyebrow.textContent = cfg.site.footerEyebrow || "Until We Celebrate Together";
+      footerEyebrow.textContent = cfg.site.footerEyebrow || "Until we celebrate together";
     }
     $("#footer-names").textContent = `${cfg.couple.groom.shortName} & ${cfg.couple.bride.shortName}`;
-    $("#footer-quote").textContent = cfg.site.footerQuote || "";
     const footerBlessing = $("#footer-blessing");
     if (footerBlessing) {
       footerBlessing.textContent = cfg.site.footerBlessing || "";
     }
-    $("#footer-credit").textContent = cfg.site.footerCredit || "";
+    const footerSignoff = $("#footer-signoff");
+    if (footerSignoff) {
+      footerSignoff.textContent = cfg.site.footerSignoff || "With love,";
+    }
+    const footerBrand = $("#footer-brand");
+    if (footerBrand) {
+      footerBrand.textContent = cfg.site.footerBrand || cfg.site.splashBrand || "Amora";
+    }
+    const footerTag = $("#footer-tag");
+    if (footerTag) {
+      footerTag.textContent = cfg.site.footerTagline || "A story written in love";
+    }
 
     const audio = $("#bg-music");
     audio.src = cfg.music.src;

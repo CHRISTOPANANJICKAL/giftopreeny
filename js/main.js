@@ -50,26 +50,24 @@
       <span class="splash__amp">&</span>
       <span class="splash__name" data-part="bride">${bride}</span>
     `;
+    const splashBrand = $("#splash-brand");
+    if (splashBrand) {
+      splashBrand.textContent = cfg.site.splashBrand || "Amora";
+    }
+    const splashTagline = $("#splash-tagline");
+    if (splashTagline) {
+      splashTagline.textContent =
+        cfg.site.splashTagline || "A Celebration of Love";
+    }
     const splashKicker = $("#splash-kicker");
     if (splashKicker) {
-      splashKicker.textContent = cfg.site.splashKicker || "With joyful hearts";
+      splashKicker.textContent = cfg.site.splashKicker || "With grateful hearts,";
     }
     const inviteLabel =
       cfg.site.inviteLabel ||
-      "You are warmly invited to their Wedding Ceremony & Reception";
+      "invite you to celebrate the beginning of their forever.";
     $("#splash-label").textContent = inviteLabel;
     $("#open-invite").textContent = cfg.site.openButton;
-    const splashEventKey = cfg.site.splashDateEvent || "wedding";
-    const splashEvent =
-      cfg.events[splashEventKey] || cfg.events.wedding;
-    const splashEventDate = new Date(splashEvent.datetime);
-    const splashDate = $("#splash-date");
-    if (splashDate && !Number.isNaN(splashEventDate.getTime())) {
-      const dd = String(splashEventDate.getDate()).padStart(2, "0");
-      const mm = String(splashEventDate.getMonth() + 1).padStart(2, "0");
-      const yyyy = splashEventDate.getFullYear();
-      splashDate.textContent = `${dd} · ${mm} · ${yyyy}`;
-    }
 
     const names = `${groom} <span>&</span> ${bride}`;
     $("#nav-brand").textContent = `${groom} & ${bride}`;
@@ -79,7 +77,12 @@
 
     const wedding = cfg.events[cfg.countdownTarget] || cfg.events.wedding;
     const weddingDateEl = $("#wedding-date");
-    if (weddingDateEl) weddingDateEl.textContent = wedding.displayDate;
+    if (weddingDateEl) {
+      weddingDateEl.innerHTML = String(wedding.displayDate).replace(
+        /(\d+)/g,
+        '<span class="wedding-date__num">$1</span>'
+      );
+    }
 
     renderNav(cfg.nav);
     renderCouple(cfg.couple);
@@ -549,11 +552,11 @@
   }
 
   function spawnSparkBurst(x, y) {
-    // Immediate burst, then a lingering afterglow for ~1s
-    spawnSparkles(x, y, 16, 1);
-    setTimeout(() => spawnSparkles(x, y, 10, 0.95), 220);
-    setTimeout(() => spawnSparkles(x, y, 8, 0.85), 480);
-    setTimeout(() => spawnSparkles(x, y, 5, 0.7), 780);
+    // Immediate burst, then a lighter afterglow (~50% of prior intensity)
+    spawnSparkles(x, y, 8, 0.5);
+    setTimeout(() => spawnSparkles(x, y, 5, 0.48), 220);
+    setTimeout(() => spawnSparkles(x, y, 4, 0.42), 480);
+    setTimeout(() => spawnSparkles(x, y, 2, 0.35), 780);
   }
 
   function spawnSparkles(x, y, count = 12, strength = 1) {

@@ -2221,21 +2221,6 @@ body.is-open .scroll-hint {
 
 /* Responsive */
 @media (max-width: 860px) {
-  .hero {
-    height: calc(100vh - 4.75rem);
-    height: calc(100dvh - 4.75rem);
-    min-height: 0;
-    max-height: calc(100vh - 4.75rem);
-    max-height: calc(100dvh - 4.75rem);
-  }
-
-  .hero__media img {
-    object-fit: contain;
-    object-position: center center;
-    transform: none;
-    animation: none;
-  }
-
   .site-header {
     position: relative;
   }

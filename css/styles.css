@@ -725,7 +725,7 @@ textarea {
   }
 
   .site-footer {
-    padding-bottom: 7.5rem;
+    padding-bottom: 10.5rem;
   }
 }
 
@@ -983,7 +983,7 @@ body.is-open main {
   z-index: 1;
   width: min(720px, 92vw);
   text-align: center;
-  padding: 0 1rem 4.5rem;
+  padding: 0 1rem 6.25rem;
 }
 
 body.is-open .hero__brand {
@@ -2124,7 +2124,7 @@ body.is-open .scroll-hint {
 
 /* Footer */
 .site-footer {
-  padding: 4.5rem 1.25rem 6.5rem;
+  padding: 4.5rem 1.25rem 9rem;
   text-align: center;
   background: transparent;
 }
@@ -2221,6 +2221,21 @@ body.is-open .scroll-hint {
 
 /* Responsive */
 @media (max-width: 860px) {
+  .hero {
+    height: calc(100vh - 4.75rem);
+    height: calc(100dvh - 4.75rem);
+    min-height: 0;
+    max-height: calc(100vh - 4.75rem);
+    max-height: calc(100dvh - 4.75rem);
+  }
+
+  .hero__media img {
+    object-fit: contain;
+    object-position: center center;
+    transform: none;
+    animation: none;
+  }
+
   .site-header {
     position: relative;
   }

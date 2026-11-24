@@ -113,14 +113,15 @@
     const audio = $("#bg-music");
     audio.src = cfg.music.src;
     audio.loop = cfg.music.loop !== false;
-    initLyrics(cfg.lyrics || [], audio);
+    initLyrics(cfg.lyrics || [], audio, cfg.site.showSubtitles === true);
   }
 
   let lyricsTracks = [];
   let lyricsIndex = -1;
   let lyricsRaf = 0;
 
-  function initLyrics(tracks, audio) {
+  function initLyrics(tracks, audio, enabled) {
+    if (!enabled) return;
     lyricsTracks = tracks
       .slice()
       .sort((a, b) => a.start - b.start);
@@ -463,17 +464,8 @@
   function renderInviteCard(cfg) {
     const g = cfg.couple.groom.shortName;
     const b = cfg.couple.bride.shortName;
-    const wedding = cfg.events.wedding;
     $("#invite-seal").textContent = `${g[0]}&${b[0]}`;
     $("#invite-front-names").textContent = `${g} & ${b}`;
-    $("#invite-back-names").textContent = `${g} & ${b}`;
-    $("#invite-back-text").innerHTML = `
-      Request the pleasure of your company<br />
-      as they begin their forever<br /><br />
-      ${wedding.displayDate}<br />
-      ${wedding.displayTime}<br />
-      ${wedding.venue}
-    `;
   }
 
   function bindUI(cfg) {

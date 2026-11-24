@@ -12,7 +12,8 @@
     "footerBlessing": "May the God who brought our paths together guide every step of the life we build.",
     "footerSignoff": "With love,",
     "footerBrand": "Amora",
-    "footerTagline": "A story written in love"
+    "footerTagline": "A story written in love",
+    "showSubtitles": false
   },
   "couple": {
     "groom": {
@@ -44,22 +45,22 @@
       "birthday": "1998-12-14",
       "parents": {
         "father": "K.K. Paulose",
-        "mother": "Sheeba Pauly"
+        "mother": "Sheeba Simon"
       },
       "siblings": [
         {
           "relation": "Sibling",
-          "name": "Preena Rose Pauly"
+          "name": "Kevin Pauly"
         },
         {
           "relation": "Sibling",
-          "name": "Kevin Pauly"
+          "name": "Preena Rose Pauly"
         }
       ],
       "address": {
         "line": "Kuttikkad, Chalakudy"
       },
-      "bio": "Daughter of K.K. Paulose and Sheeba Pauly"
+      "bio": "Daughter of K.K. Paulose and Sheeba Simon"
     }
   },
   "events": {

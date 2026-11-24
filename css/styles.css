@@ -1706,11 +1706,17 @@ body.is-open .scroll-hint {
 
 .invite-scene {
   position: relative;
-  width: min(340px, 88vw);
-  height: 500px;
-  perspective: 1800px;
+  width: min(380px, 88vw);
+  aspect-ratio: 1429 / 2000;
+  height: auto;
+  perspective: 2200px;
   perspective-origin: 50% 45%;
   animation: cardFloat 5.5s ease-in-out infinite;
+  transition: width 0.7s var(--ease);
+}
+
+.invite-scene.is-open {
+  width: min(860px, 94vw);
 }
 
 .invite-scene.is-flipping {
@@ -1764,19 +1770,15 @@ body.is-open .scroll-hint {
   cursor: pointer;
   transform-style: preserve-3d;
   transition: transform 1.35s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: transform;
 }
 
 .invite-card:hover {
   transform: rotateY(-8deg) rotateX(2deg) scale(1.015);
 }
 
-.invite-card.is-open {
-  transform: rotateY(-180deg) translateZ(12px);
-}
-
+.invite-card.is-open,
 .invite-card.is-open:hover {
-  transform: rotateY(-180deg) translateZ(12px) scale(1.01);
+  transform: rotateY(-180deg);
 }
 
 .invite-card__face {
@@ -1800,15 +1802,21 @@ body.is-open .scroll-hint {
     radial-gradient(circle at 50% 0%, rgba(255, 248, 232, 0.9), transparent 55%),
     linear-gradient(165deg, #fbf7f0 0%, #f0e4d0 48%, #e8d7bc 100%);
   color: var(--ink);
-  transform: rotateY(0deg) translateZ(1px);
+  transform: rotateY(0deg);
 }
 
 .invite-card__face--back {
-  background:
-    radial-gradient(circle at 50% 15%, rgba(201, 164, 91, 0.18), transparent 50%),
-    linear-gradient(165deg, #243f34 0%, #152920 55%, #0f1b16 100%);
-  color: var(--ivory);
-  transform: rotateY(180deg) translateZ(1px);
+  padding: 0;
+  background: #f7f3ea;
+  transform: rotateY(180deg);
+}
+
+.invite-card__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  pointer-events: none;
 }
 
 .invite-card__frame {
@@ -2276,6 +2284,25 @@ body.is-open .scroll-hint {
     padding-top: 1.25rem;
   }
 
+}
+
+@media (max-width: 720px) {
+  .invite-scene.is-open {
+    width: 100%;
+    height: 78vh;
+    aspect-ratio: auto;
+  }
+
+  .invite-scene.is-open .invite-card__face--back {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .invite-scene.is-open .invite-card__photo {
+    width: 900px;
+    max-width: none;
+    height: auto;
+  }
 }
 
 @media (max-width: 520px) {

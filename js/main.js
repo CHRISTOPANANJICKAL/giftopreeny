@@ -35,7 +35,7 @@
   }
 
   async function loadConfig() {
-    const res = await fetch(CONFIG_URL);
+    const res = await fetch(CONFIG_URL + "?t=" + Date.now(), { cache: "no-store" });
     if (!res.ok) throw new Error("Could not load config.json");
     return res.json();
   }

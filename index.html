@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Wedding invitation for Gifto Baby and Preeny Treesa Pauly" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     <title>Gifto & Preeny Wedding Invitation</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -203,6 +206,33 @@
     </div>
 
     <audio id="bg-music" preload="auto" loop></audio>
-    <script src="js/main.js?v=20261123b" defer></script>
+    <script>
+      (function () {
+        function ver(el, attr) {
+          if (!el) return "";
+          var match = (el.getAttribute(attr) || "").match(/[?&]v=([^&]+)/);
+          return match ? match[1] : "";
+        }
+        fetch("index.html?t=" + Date.now(), { cache: "no-store" })
+          .then(function (res) { return res.text(); })
+          .then(function (html) {
+            var css = document.querySelector('link[href*="styles.css"]');
+            var js = document.querySelector('script[src*="main.js"]');
+            var here = ver(css, "href") + "|" + ver(js, "src");
+            var cssMatch = html.match(/styles\.css\?v=([^"'&\s]+)/);
+            var jsMatch = html.match(/main\.js\?v=([^"'&\s]+)/);
+            var latest = (cssMatch ? cssMatch[1] : "") + "|" + (jsMatch ? jsMatch[1] : "");
+            if (!cssMatch && !jsMatch) return;
+            if (latest === here) return;
+            if (sessionStorage.getItem("reloaded-for") === latest) return;
+            sessionStorage.setItem("reloaded-for", latest);
+            var url = new URL(location.href);
+            url.searchParams.set("v", (jsMatch && jsMatch[1]) || String(Date.now()));
+            location.replace(url.toString());
+          })
+          .catch(function () {});
+      })();
+    </script>
+    <script src="js/main.js?v=20261124b" defer></script>
   </body>
 </html>

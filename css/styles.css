@@ -1715,10 +1715,6 @@ body.is-open .scroll-hint {
   transition: width 0.7s var(--ease);
 }
 
-.invite-scene.is-open {
-  width: min(860px, 94vw);
-}
-
 .invite-scene.is-flipping {
   animation: none;
 }
@@ -2286,22 +2282,9 @@ body.is-open .scroll-hint {
 
 }
 
-@media (max-width: 720px) {
+@media (min-width: 721px) {
   .invite-scene.is-open {
-    width: 100%;
-    height: 78vh;
-    aspect-ratio: auto;
-  }
-
-  .invite-scene.is-open .invite-card__face--back {
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .invite-scene.is-open .invite-card__photo {
-    width: 900px;
-    max-width: none;
-    height: auto;
+    width: min(860px, 94vw);
   }
 }
 
